@@ -1,0 +1,35 @@
+.heroContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75dvh;
+    background-image: url('../../../assets/Casa-moderna-un-piso.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.institutional {
+    margin-top: 10rem;
+    text-align: left;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+}
+
+.institutional h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.institutional p {
+  font-size: 0.75rem;
+  color: black;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
