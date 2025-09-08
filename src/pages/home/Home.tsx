@@ -2,6 +2,7 @@ import { Hero } from "../../components/ui/hero"
 import { useState, useEffect } from "react"
 import styles from './Home.module.css'
 import { CardProducts } from "../../components/ui/cardPrducts";
+import { Institutional } from "../../components/ui/institutional/Institutional";
 
 const Home = () => {
 
@@ -34,6 +35,7 @@ const Home = () => {
                     <CardProducts key={product.id} product={product} />
                 ))}
             </div>
+            <Institutional />
         </div>
     )
 }
