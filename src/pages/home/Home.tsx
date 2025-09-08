@@ -1,5 +1,7 @@
-import { Hero } from "../../components/ui/hero/Hero"
+import { Hero } from "../../components/ui/hero"
 import { useState, useEffect } from "react"
+import styles from './Home.module.css'
+import { CardProducts } from "../../components/ui/cardPrducts";
 
 const Home = () => {
 
@@ -24,6 +26,14 @@ const Home = () => {
     return (
         <div>
             <Hero/>
+            <h2>Propiedades destacadas del mes</h2>
+            <div className={styles.productsContainer}>
+                {products
+                .slice(0, 5)
+                .map((product) => (
+                    <CardProducts key={product.id} product={product} />
+                ))}
+            </div>
         </div>
     )
 }
