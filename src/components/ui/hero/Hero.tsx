@@ -3,7 +3,7 @@ import styles from './hero.module.css';
 export const Hero = () => {
   return (
     <div className={styles.heroContainer}> 
-            <div className={styles.institutional}>
+            <div className={styles.heroTexting}>
                 <h1>T.C Listing Page</h1>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                 <button>Get Started</button>

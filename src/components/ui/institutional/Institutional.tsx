@@ -18,13 +18,13 @@ export const Institutional = () => {
     <div className={styles.institutionalContainer}>
       <div className={styles.imageContainer}>
         <img src={items[index].src} alt={items[index].title} />
-      </div>
-      <div className={styles.textContainer}>
-        <h2>{items[index].title}</h2>
-      </div>
-      <div className={styles.buttonContainer}>
-        <button onClick={prev}>Anterior</button>
-        <button onClick={next}>Siguiente</button>
+        <div className={styles.textContainer}>
+          <h2>{items[index].title}</h2>
+        </div>
+        <div className={styles.buttonContainer}>
+          <button className={`${styles.carouselButton} ${styles.prev}`} onClick={prev}>{"<"}</button>
+          <button className={`${styles.carouselButton} ${styles.next}`} onClick={next}>{">"}</button>
+        </div>
       </div>
     </div>
   )

@@ -11,7 +11,7 @@
     position: relative;
 }
 
-.institutional {
+.heroTexting {
     margin-top: 10rem;
     text-align: left;
     position: absolute;
@@ -19,7 +19,7 @@
     bottom: 10%;
 }
 
-.institutional h1 {
+.heroTexting h1 {
   font-size: 1.5rem;
   font-weight: bold;
   color: gray;
@@ -27,7 +27,7 @@
   z-index: 1;
 }
 
-.institutional p {
+.heroTexting p {
   font-size: 0.75rem;
   color: black;
   margin-bottom: 2rem;
