@@ -30,7 +30,7 @@
       "id": "03",
       "image": "/src/assets/departamento-para-alquilar.jpg",
       "title": "Monoambiente a estrenar",
-      "adress": "Edificio Luxor II",
+      "address": "Edificio Luxor II",
       "price": "$500.000",
       "operationType": "Alquiler",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
