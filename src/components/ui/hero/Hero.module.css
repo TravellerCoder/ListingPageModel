@@ -1,35 +1,61 @@
 .heroContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 75dvh;
-    background-image: url('../../../assets/Casa-moderna-un-piso.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     position: relative;
+    width: 100%;
+    height: 70dvh;
+    display: flex;
+    overflow: hidden;
 }
 
-.heroTexting {
-    margin-top: 10rem;
-    text-align: left;
-    position: absolute;
-    right: 5%;
-    bottom: 10%;
+.heroBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: heroBlur 2s forwards;
 }
+
+@keyframes heroBlur {
+  from {
+    filter: blur(0px) brightness(1);
+  }
+  to {
+    filter: blur(4px) brightness(0.7);
+  }
+}
+.heroTexting {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 2;
+  animation: heroTextGrow 2s forwards;
+}
+
+@keyframes heroTextGrow {
+  from {
+    transform: scale(1);
+    filter: brightness(0.7);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+    opacity: 1;
+  }
+}
+
 
 .heroTexting h1 {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  color: gray;
+  color: #fff;
   margin-bottom: 1rem;
   z-index: 1;
 }
 
+
 .heroTexting p {
-  font-size: 0.75rem;
-  color: black;
+  font-size: 1.25rem;
+  color: #fff;
   margin-bottom: 2rem;
   max-width: 600px;
 }

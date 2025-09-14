@@ -1,0 +1,32 @@
+.footerContainer {
+    width: 100%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;   
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socialMediaContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.socialMediaContainer h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+}
+
+.socialMediaList {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}   
