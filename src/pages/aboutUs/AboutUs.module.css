@@ -1,0 +1,22 @@
+.aboutUsContainer {
+    padding: 20px;
+    width: 65%;
+    height: 50dvh;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.aboutUsContainer h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: antiquewhite;
+    margin-bottom: 20px;
+}
+
+.textContainer {
+    margin-top: 10px;
+    line-height: 1.6;
+    color: antiquewhite;
+    font-size: 1.1rem;
+}
