@@ -11,6 +11,7 @@
   height: 100%;
   object-fit: cover;
   animation: heroBlur 2s forwards;
+  animation-delay: 1.5s;
 }
 
 @keyframes heroBlur {
@@ -33,8 +34,8 @@
 @keyframes heroTextGrow {
   from {
     transform: scale(1);
-    filter: brightness(0.7);
-    opacity: 0.5;
+    filter: brightness(0.4);
+    opacity: 0.3;
   }
   to {
     transform: scale(1.2);

@@ -21,29 +21,33 @@
     object-fit: cover;
 }
 
-
+.infoProduct {
+    margin-top: 12px;
+    text-align: center;
+}
 
 .detailsProduct {
     margin-top: 8px;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    padding: 0 12px 12px 12px;
+    text-align: left;
 
 }
 
 .detailsProduct p {
-    color: #555;
+    color: white;
     cursor: pointer;
 }
 
-.detailsProduct :hover{
-    color: #0056b3;
-}
-
 button {
-    margin-top: 12px;
+    margin: 12px auto;
+    text-align: center  ;
     padding: 8px 12px;
     border: none;
     border-radius: 4px;
-    background: #007bff;
+    background: gray;
     color: white;
     cursor: pointer;
 }
