@@ -4,7 +4,7 @@ export const NavBar = () => {
   return (
     <div className={styles.navBarContainer}>
         <div className={styles.logo}>  
-            T.C Listing Page
+            T.C Broker Inmobiliario
         </div>
         <div className={styles.navLinks}>
             <a href="/">Propiedades</a>
