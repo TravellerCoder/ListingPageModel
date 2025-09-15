@@ -5,6 +5,7 @@ import { LayoutMain } from './components/layouts/LayoutMain.tsx'
 import ProductDetail from './pages/productDetail/ProductDetail.tsx'
 import Home from './pages/home/Home.tsx'
 import AboutUs from './pages/aboutUs/AboutUs.tsx'
+import Contact from './pages/contact/Contact.tsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
         path: "/about",
         element: <AboutUs />,
       },
+      {
+        path: "/contact",
+        element: <Contact />,
+      }
     ],
   },
 ]);
