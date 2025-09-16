@@ -9,6 +9,8 @@ const Contact = () => {
     message: "",
 });
 
+    const [status, setStatus] = useState("");
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,6 +25,9 @@ const Contact = () => {
         setStatus("Por favor completá todos los campos.");
         return;
     }
+
+    setStatus("¡Mensaje enviado con éxito!");
+    setFormData({ name: "", email: "", message: "" });
 };
 
 return (
@@ -79,6 +84,9 @@ return (
           Enviar
         </button>
       </form>
+      {status && (
+        <p className={styles.statusMessage}>{status}</p>
+      )}
         </div>
     </div>
   )
