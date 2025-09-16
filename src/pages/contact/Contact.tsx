@@ -30,7 +30,7 @@ return (
         <h1>Contactanos</h1>
         <div className={styles.formContainer}>
             <form onSubmit={handleSubmit} className={styles.contactForm}>
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="name" className={styles.formLabel}>
                     Nombre
                 </label>
@@ -40,12 +40,12 @@ return (
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                    className= {styles.formInput}
                     placeholder="Tu nombre"
                 />
             </div>
 
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="email" className={styles.formLabel}>
                     Email
                 </label>
@@ -55,12 +55,12 @@ return (
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                    className={styles.formInput}
                     placeholder="tuemail@ejemplo.com"
                 />
             </div>
 
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="message" className={styles.formLabel}>
                     Mensaje
                 </label>
@@ -70,7 +70,7 @@ return (
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                    className={styles.formTextarea}
                     placeholder="Escribí tu mensaje..."
                 ></textarea>
         </div>
