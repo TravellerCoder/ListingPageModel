@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './Contact.module.css'
 
 const Contact = () => {
@@ -11,25 +11,28 @@ const Contact = () => {
 
     const [status, setStatus] = useState("");
 
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };    
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+        useEffect(() => {
+            document.title = "Contacto | T.C Broker";
+        }, []);
 
-    // Validación simple
-    if (!formData.name || !formData.email || !formData.message) {
-        setStatus("Por favor completá todos los campos.");
-        return;
-    }
+        const handleSubmit = (e) => {
+            e.preventDefault();
 
-    setStatus("¡Mensaje enviado con éxito!");
-    setFormData({ name: "", email: "", message: "" });
-};
+            // Validación simple
+            if (!formData.name || !formData.email || !formData.message) {
+                setStatus("Por favor completá todos los campos.");
+                return;
+            }
 
+            setStatus("¡Mensaje enviado con éxito!");
+            setFormData({ name: "", email: "", message: "" });
+        }
+        
 return (
     <div className={styles.contactContainer}>
         <h1>Contactanos</h1>
@@ -93,3 +96,4 @@ return (
 }
 
 export default Contact
+

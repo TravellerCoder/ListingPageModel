@@ -23,6 +23,10 @@ const Home = () => {
         getProducts();
     }, []);
 
+      useEffect(() => {
+            document.title = "Inicio | T.C Broker";
+        }, []);
+
     
     return (
         <div>

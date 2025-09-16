@@ -1,7 +1,13 @@
+import { useEffect } from 'react'
 import styles from './AboutUs.module.css'
 
 
+
 const AboutUs = () => {
+  useEffect(() => {
+            document.title = "Nosotros | T.C Broker";
+        }, []);
+
   return (
     <div className={styles.aboutUsContainer}>
         <h1>Tu mejor opción inmobiliaria</h1>
