@@ -7,7 +7,7 @@ export const NavBar = () => {
             T.C Broker Inmobiliario
         </div>
         <div className={styles.navLinks}>
-            <a href="/">Propiedades</a>
+            <a href="/products">Propiedades</a>
             <a href="/about">Quienes Somos</a>
             <a href="/contact">Contacto</a>
         </div>

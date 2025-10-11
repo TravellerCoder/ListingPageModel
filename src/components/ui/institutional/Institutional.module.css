@@ -1,10 +1,19 @@
-.carouselContainer {
+.institutionalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65vh;
+  width: 95%;
+  margin: 0 auto;;
+}
+
+.imageContainer {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 65vh;
-  width: 85vw;
+  width: 100vw;
   margin: 25px auto;
 }
 
