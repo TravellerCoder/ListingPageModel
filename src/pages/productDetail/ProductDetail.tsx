@@ -103,7 +103,7 @@ const ProductDetail = () => {
 
   return (
     <div className={styles.productDetailContainer}>
-      <h1>Que tipo de propiedad estas buscando?</h1>
+      <h1>Encontra aqui las mejores opciones del mercado</h1>
       <aside className={styles.productDetailAside}>
         <header  className={styles.asideHeader}>
           <h2>Que tipo de operacion estas buscando?</h2>
@@ -243,10 +243,9 @@ const ProductDetail = () => {
         </aside>
 
         <div className={styles.productsSection}>
-            <h2>Propiedades destacadas del mes</h2>
             <div className={styles.productsContainer}>
                 {filteredProducts.length === 0 ? (
-                  <p style={{ color: 'antiquewhite', gridColumn: '1 / -1', textAlign: 'center' }}>
+                  <p style={{ color: 'antiquewhite', gridColumn: '1 / -1', fontSize: '1.8rem', margin: '0 auto', textAlign: 'center' }}>
                     No hay resultados
                   </p>
                 ) : (
