@@ -1,0 +1,112 @@
+.productDetailContainer {
+  padding: 20px;
+    max-width: 100dvw;
+    margin: 0 auto;
+}
+
+.productDetailContainer h1 {
+        color: white;
+    }
+
+.productDetailAside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    max-width: 25%;
+    background-color: rgba(61, 42, 42, 0.678);
+
+    .asideHeader {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .asideHeader h2 {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .buttonsHeaderContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 10px; 
+        text-align: center;
+    }
+
+    .buttonOperation {
+        flex: 1;
+        padding: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+    }
+
+    .asideMain {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .asideMain h2 {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .buttonsMainContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 10px; 
+        text-align: center;
+    }
+
+    .buttonsMainContainer button {
+        flex: 1;
+        padding: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+    }
+
+    .filtersContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .filter {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+    .filter label {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: antiquewhite;
+        padding: 3px;
+    }
+
+    .filter input {
+        padding: 3px;
+        font-size: 0.9rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+
+}

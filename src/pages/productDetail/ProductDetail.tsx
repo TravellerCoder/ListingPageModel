@@ -8,14 +8,14 @@ const ProductDetail = () => {
       <aside className={styles.productDetailAside}>
         <header  className={styles.asideHeader}>
           <h2>Que tipo de operacion estas buscando?</h2>
-          <div className={styles.buttonsContainer}>
-            <button className={styles.buttonBuy}>Comprar</button>
-            <button className={styles.buttonRent}>Alquilar</button>
+          <div className={styles.buttonsHeaderContainer}>
+            <button className={styles.buttonOperation}>Comprar</button>
+            <button className={styles.buttonOperation}>Alquilar</button>
           </div>
         </header>
         <main className={styles.asideMain}>
           <h2>Que tipo de propiedad estas buscando?</h2>
-          <div className={styles.buttonsContainer}>
+          <div className={styles.buttonsMainContainer}>
             <button className={styles.buttonHouse}>Casa</button>
             <button className={styles.buttonApartment}>Departamento</button>
             <button className={styles.buttonPH}>PH</button>
@@ -44,10 +44,10 @@ const ProductDetail = () => {
               <input type="number" id="surface" name="surface" placeholder="Superficie" />
             </div>
           </div>
-          <button className={styles.applyFiltersButton}>Aplicar Filtros</button>
+          {/* <button className={styles.applyFiltersButton}>Aplicar Filtros</button> */}
         </main>
         <footer>
-          <button> Buscar</button>
+          {/*<button> Buscar</button> */}
         </footer>
         </aside>
     </div>
