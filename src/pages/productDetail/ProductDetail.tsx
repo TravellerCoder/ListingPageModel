@@ -1,7 +1,30 @@
+import { useEffect, useState } from 'react';
+import { CardProducts } from '../../components/ui/cardPrducts';
 import styles from './ProductDetail.module.css'
 
 
 const ProductDetail = () => {
+
+  const [products, setProducts] = useState([]);
+  
+      const getProducts = async () => {
+          try {
+              const response = await fetch('http://localhost:3001/products');
+              const data = await response.json();
+              setProducts(data);
+          } catch (error) {
+              console.error('Error fetching products:', error);
+          }
+      }
+  
+      useEffect(() => {
+          getProducts();
+      }, []);
+  
+        useEffect(() => {
+              document.title = "Propiedades | T.C Broker";
+          }, []);
+
   return (
     <div className={styles.productDetailContainer}>
       <h1>Que tipo de propiedad estas buscando?</h1>
@@ -50,6 +73,17 @@ const ProductDetail = () => {
           {/*<button> Buscar</button> */}
         </footer>
         </aside>
+
+        <div className={styles.productsSection}>
+            <h2>Propiedades destacadas del mes</h2>
+            <div className={styles.productsContainer}>
+                {products
+                .slice(0, 5)
+                .map((product) => (
+                    <CardProducts key={product.id} product={product} />
+                ))}
+            </div>
+        </div>
     </div>
 
   )

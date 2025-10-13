@@ -1,112 +1,148 @@
 .productDetailContainer {
-  padding: 20px;
+    padding: 20px;
     max-width: 100dvw;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Aside + contenido */
+    gap: 24px;
+    align-items: start;
 }
 
 .productDetailContainer h1 {
-        color: white;
-    }
+    color: white;
+    grid-column: 1 / -1; /* El título ocupa ambas columnas */
+}
 
+/* Aside */
 .productDetailAside {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 0; /* el grid maneja los gaps */
     padding: 20px;
-    max-width: 25%;
     background-color: rgba(61, 42, 42, 0.678);
+    border-radius: 8px;
+}
 
-    .asideHeader {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 10px;
+.asideHeader {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.asideHeader h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: antiquewhite;
+}
+
+.buttonsHeaderContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.buttonOperation {
+    flex: 1;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.asideMain {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.asideMain h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: antiquewhite;
+}
+
+.buttonsMainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.buttonsMainContainer button {
+    flex: 1;
+    min-width: 120px;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.filtersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.filter label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: antiquewhite;
+    padding: 3px;
+}
+
+.filter input {
+    padding: 3px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Sección de productos (a la derecha del aside) */
+.productsSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.productsSection h2 {
+    color: antiquewhite;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.productsContainer {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    padding: 10px 0;
+}
+
+@media (max-width: 900px) {
+    .productDetailContainer {
+        grid-template-columns: 1fr; /* En móvil, se apilan */
     }
-
-    .asideHeader h2 {
-        font-size: 1.6rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .buttonsHeaderContainer {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        margin-top: 10px; 
-        text-align: center;
-    }
-
-    .buttonOperation {
-        flex: 1;
-        padding: 8px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        background-color: white;
-        color: black;
-    }
-
-    .asideMain {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .asideMain h2 {
-        font-size: 1.6rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .buttonsMainContainer {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        margin-top: 10px; 
-        text-align: center;
-    }
-
-    .buttonsMainContainer button {
-        flex: 1;
-        padding: 8px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        background-color: white;
-        color: black;
-    }
-
-    .filtersContainer {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 25px;
-    }
-
-    .filter {
-        display: flex;
-        flex-direction: row;
-        gap: 5px;
-    }
-    .filter label {
-        font-size: 0.9rem;
-        font-weight: bold;
-        margin-bottom: 5px;
-        color: antiquewhite;
-        padding: 3px;
-    }
-
-    .filter input {
-        padding: 3px;
-        font-size: 0.9rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-
 }

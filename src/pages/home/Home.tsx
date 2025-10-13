@@ -29,7 +29,7 @@ const Home = () => {
 
     
     return (
-        <div>
+            <div>
             <Hero/>
             <h2>Propiedades destacadas del mes</h2>
             <div className={styles.productsContainer}>
