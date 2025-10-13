@@ -69,45 +69,7 @@
       "rooms": "6",
       "bathrooms": "3",
       "area": "250m2"
-    },
-    {
-      "id": "01",
-      "title": "Casa 3 habitaciones",
-      "adress": "7420 FM 2673, Canyon Lake, TX 78133",
-      "price": "USD 150.000",
-      "operationType": "Venta",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "bedrooms": "3",
-      "rooms": "5",
-      "bathrooms": "3",
-      "area": "150m2",
-      "countyFips": "091"
-    },
-    {
-      "id": "01",
-      "title": "Casa 3 habitaciones",
-      "adress": "7420 FM 2673, Canyon Lake, TX 78133",
-      "price": "USD 150.000",
-      "operationType": "Venta",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "bedrooms": "3",
-      "rooms": "5",
-      "bathrooms": "3",
-      "area": "150m2",
-      "countyFips": "091"
-    },
-    {
-      "id": "01",
-      "title": "Casa 3 habitaciones",
-      "adress": "7420 FM 2673, Canyon Lake, TX 78133",
-      "price": "USD 150.000",
-      "operationType": "Venta",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "bedrooms": "3",
-      "rooms": "5",
-      "bathrooms": "3",
-      "area": "150m2",
-      "countyFips": "091"
     }
+    
   ]
 }
