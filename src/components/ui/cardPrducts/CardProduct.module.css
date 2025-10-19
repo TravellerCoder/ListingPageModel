@@ -9,6 +9,7 @@
     border-radius: 16px;                   /* Bordes redondeados */
     border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
 }
 
 .productContainer:hover {
