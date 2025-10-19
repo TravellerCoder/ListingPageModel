@@ -25,6 +25,7 @@
 
 .formGroup label {
     margin-bottom: 0.75rem;
+    font-size: 1.3rem;
 }
 
 .formGroup input {
@@ -41,4 +42,10 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.875rem;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
