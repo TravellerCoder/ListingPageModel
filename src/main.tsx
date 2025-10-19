@@ -7,6 +7,7 @@ import ProductDetail from './pages/productDetail/ProductDetail.tsx'
 import Home from './pages/home/Home.tsx'
 import AboutUs from './pages/aboutUs/AboutUs.tsx'
 import Contact from './pages/contact/Contact.tsx'
+import LogIn from './pages/logIn/LogIn.tsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/detail/:id",
         element: <ProductDetail />,
+      },
+      { 
+        path: "/login",
+        element: <LogIn />,
       }
     ],
   },
