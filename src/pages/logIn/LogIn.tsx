@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LogIn.module.css';
 
@@ -37,6 +37,10 @@ const LogIn = () => {
         setError( 'Credenciales incorrectas.' );
     }
     };
+
+    useEffect(() => {
+                  document.title = "Log In | T.C Broker";
+              }, []);
 
   return (
     <div className={styles.logInContainer}>
