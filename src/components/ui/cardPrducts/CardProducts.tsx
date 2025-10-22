@@ -1,6 +1,5 @@
 import styles from './CardProduct.module.css';
 import { Link, useLocation } from 'react-router-dom';
-
 interface Product {
   id: string;
   image: string;

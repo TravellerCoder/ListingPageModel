@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CardProducts } from '../../components/ui/cardPrducts';
+import { useProducts } from '../../context/ProductContext.tsx';
 import styles from './ProductCart.module.css'
 
 interface Product {
@@ -23,7 +24,6 @@ interface ProductsData {
 
 const ProductCart = () => {
 
-  const [products, setProducts] = useState<Product[]>([]);
   const [operationFilter, setOperationFilter] = useState<'' | 'Venta' | 'Alquiler'>('');
   const [propertyFilter, setPropertyFilter] = useState<'' | 'Casa' | 'Departamento' | 'PH' | 'Terreno' | 'Comercial'>('');
   const [minPrice, setMinPrice] = useState<number | ''>('');
@@ -32,23 +32,17 @@ const ProductCart = () => {
   const [bathrooms, setBathrooms] = useState<number | ''>('');
   const [minArea, setMinArea] = useState<number | ''>('');
   
-    const getProducts = async () => {
-      try {
-        const response = await fetch('/data/D-B.json');
-        const data = await response.json();
-        setProducts(data.products);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    }
-  
-      useEffect(() => {
-          getProducts();
-      }, []);
-  
-        useEffect(() => {
+  useEffect(() => {
               document.title = "Propiedades | T.C Broker";
           }, []);
+          
+  const { products, loading } = useProducts();
+
+  if (loading) {
+    return <p>Cargando productos...</p>;
+  }
+  
+        
 
   // Helpers de normalización
   const normalizePrice = (price?: string): number => {
