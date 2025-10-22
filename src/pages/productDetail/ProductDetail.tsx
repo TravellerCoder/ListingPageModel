@@ -1,85 +1,57 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useParams, Link, useLocation} from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
+import { useProducts } from '../../context/ProductContext';
 import styles from './ProductDetail.module.css';
 
 interface Product {
   id: string;
   image?: string;
-  images?: string[];        // opcional: si en el futuro agregás galería
+  images?: string[];
   title: string;
-  address?: string;         // hay items con "address"
-  adress?: string;          // y otros con "adress"
-  price: string;            // "USD 180.000" o "$500.000"
-  operationType: 'Venta' | 'Alquiler' | string;
+  address?: string;
+  adress?: string;
+  price: string;
+  operationType: string;
+  propertyType?: string;
   description?: string;
   bedrooms?: string;
   rooms?: string;
   bathrooms?: string;
-  area?: string;            // "150m2"
+  area?: string;
 }
 
-interface ProductsData {
-  products: Product[];
-}
-
-
-
-async function fetchProductById(id: string): Promise<Product> {
-
-  const response = await fetch('/data/D-B.json');
-  const data: ProductsData = await response.json();
-
-  // Busca el producto directamente en los datos importados
-  const product = data.products.find((p) => p.id === id);
-  if (product) return product;
-
-  // Intenta buscar con el ID sin ceros iniciales
-  const trimmedId = id.replace(/^0+/, '');
-  if (trimmedId !== id) {
-    const trimmedProduct = data.products.find((p) => p.id === trimmedId);
-    if (trimmedProduct) return trimmedProduct;
-  }
-
-  throw new Error('Producto no encontrado');
-  console.log('Productos disponibles', data.products);
-  
-}
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const location = useLocation()
-
+  const location = useLocation();
+  const { products, loading: productsLoading } = useProducts();
   const from = (location.state as { from: string } | undefined)?.from || '/products';
 
-  const [product, setProduct] = useState<Product | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    let mounted = true;
-    const loadProduct = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const product = await fetchProductById(id!);
-        if (mounted) {
-          setProduct(product);
-          setActiveIndex(0);
-          document.title = `${product.title ?? 'Propiedad'} | T.C Broker`;
-        }
-      } catch (error) {
-        if (mounted) setError('No se pudo cargar el producto.');
-      } finally {
-        if (mounted) setLoading(false);
-      }
-    };
+  // ✅ Buscar el producto directamente desde products
+  const product = useMemo(() => {
+    if (!id || !products.length) return null;
+    
+    // Busca por ID exacto
+    let found = products.find((p) => p.id === id);
+    if (found) return found;
+    
+    // Intenta sin ceros iniciales
+    const trimmedId = id.replace(/^0+/, '');
+    if (trimmedId !== id) {
+      found = products.find((p) => p.id === trimmedId);
+    }
+    
+    return found || null;
+  }, [id, products]);
 
-    if (id) loadProduct();
-    return () => {
-      mounted = false;
-    };
-  }, [id]);
+  // ✅ Actualizar título cuando cambia el producto
+  useEffect(() => {
+    if (product) {
+      document.title = `${product.title ?? 'Propiedad'} | T.C Broker`;
+    }
+  }, [product]);
 
   const images: string[] = useMemo(() => {
     if (!product) return [];
@@ -91,7 +63,8 @@ const ProductDetail = () => {
 
   const fullAddress = product?.address || product?.adress || '';
 
-  if (loading) {
+  // ✅ Mostrar loading mientras cargan los productos
+  if (productsLoading) {
     return (
       <div className={styles.loadingContainer}>
         Cargando detalle…
@@ -99,11 +72,12 @@ const ProductDetail = () => {
     );
   }
 
-  if (error || !product) {
+  // ✅ Mostrar error si no se encuentra el producto
+  if (!product) {
     return (
       <div className={styles.errorContainer}>
-        <p className={styles.errorMessage}>{error ?? 'Producto no encontrado.'}</p>
-        <Link to="/products" className={styles.errorLink}>Volver al listado</Link>
+        <p className={styles.errorMessage}>Producto no encontrado.</p>
+        <Link to={from} className={styles.errorLink}>Volver al listado</Link>
       </div>
     );
   }
@@ -164,7 +138,7 @@ const ProductDetail = () => {
             {product.price}
           </p>
 
-          <div className= {styles.productDetailsGrid}>
+          <div className={styles.productDetailsGrid}>
             {product.bedrooms && <DetailChip label="Dormitorios" value={product.bedrooms} />}
             {product.bathrooms && <DetailChip label="Baños" value={product.bathrooms} />}
             {product.rooms && <DetailChip label="Ambientes" value={product.rooms} />}
@@ -178,7 +152,7 @@ const ProductDetail = () => {
             </>
           )}
 
-          <div className={styles.productContactActions} >
+          <div className={styles.productContactActions}>
             <a
               href={`https://wa.me/?text=${encodeURIComponent(`Hola, me interesa la propiedad: ${product.title} (${product.price}).`)}`}
               target="_blank"
