@@ -171,3 +171,40 @@
     text-decoration: 'none';
     font-weight: 600 px;
 }
+
+.adminActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.editButton {
+  background: #007bff;
+  color: #ffffff;
+}
+
+.editButton:hover {
+  background: #0056b3;
+  transform: scale(1.02);
+}
+
+.deleteButton {
+  background: #dc3545;
+  color: #ffffff;
+}
+
+.deleteButton:hover {
+  background: #c82333;
+  transform: scale(1.02);
+}

@@ -56,7 +56,7 @@ export const CardProducts =
             </div>
             <Link 
               to={`/detail/${product.id}`} 
-              state={{ from: location.pathname }}
+              state={{ from: location.pathname, isAdmin }}
               className={styles.button}>Ver mas</Link>
 
             {isAdmin && (

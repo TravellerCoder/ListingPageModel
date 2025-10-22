@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { useProducts } from '../../context/ProductContext';
+import { Modal } from '../../components/ui/modal';
 import styles from './ProductDetail.module.css';
 
 interface Product {
@@ -24,10 +25,14 @@ interface Product {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
-  const { products, loading: productsLoading } = useProducts();
+  const { products, loading: productsLoading, deleteProduct } = useProducts();
+  
+  // Determina la ruta de regreso
   const from = (location.state as { from: string } | undefined)?.from || '/products';
+  const isAdmin = (location.state as { isAdmin: boolean } | undefined)?.isAdmin || false;
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   // ✅ Buscar el producto directamente desde products
   const product = useMemo(() => {
@@ -63,6 +68,27 @@ const ProductDetail = () => {
 
   const fullAddress = product?.address || product?.adress || '';
 
+  // ✅ Manejar eliminación de producto
+  const handleDelete = () => {
+    setShowDeleteModal(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (product) {
+      deleteProduct(product.id);
+      setShowDeleteModal(false);
+
+      window.location.href = '/admin'; // Redirigir al listado
+    };
+  };
+    const handleCancelDelete = () => {
+      setShowDeleteModal(false);
+    };
+
+    const handleEdit = () => {
+      console.log('Editar producto con ID:', product?.id);
+    }
+  
   // ✅ Mostrar loading mientras cargan los productos
   if (productsLoading) {
     return (
@@ -83,6 +109,7 @@ const ProductDetail = () => {
   }
 
   return (
+  <>
     <div className={styles.productDetailContainer}>
       <div className={styles.productDetailContent}>
         {/* Columna izquierda: imágenes */}
@@ -161,20 +188,51 @@ const ProductDetail = () => {
             >
               Consultar por WhatsApp
             </a>
+            
             <Link
               to={from}
               className={styles.backToListLink}
             >
               Volver al listado
             </Link>
+
+            {/* ✅ Botones de admin - solo si isAdmin es true */}
+            {isAdmin && (
+              <div className={styles.adminActions}>
+                <button 
+                  onClick={handleEdit}
+                  className={styles.editButton}
+                >
+                  Modificar
+                </button>
+                <button 
+                  onClick={handleDelete}
+                  className={styles.deleteButton}
+                >
+                  Eliminar
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </div>
-  );
+
+    {/* ✅ Modal de confirmación */}
+    <Modal
+      isOpen={showDeleteModal}
+      title="Eliminar Producto"
+      message={`¿Estás seguro que deseas eliminar "${product.title}"? Esta acción no se puede deshacer.`}
+      onConfirm={handleConfirmDelete}
+      onCancel={handleCancelDelete}
+      confirmText="Sí, eliminar"
+      cancelText="Cancelar"
+    />
+  </>
+);
 };
 
-/* Chipcito reutilizable para los detalles */
+/* Chipcito reutilizable para    los detalles */
 const DetailChip = ({ label, value }: { label: string; value: string }) => (
   <div style={{
     background: '#2d2d2d',
