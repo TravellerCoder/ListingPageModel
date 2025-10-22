@@ -1,5 +1,5 @@
 import styles from './CardProduct.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface Product {
   id: string;
@@ -21,6 +21,7 @@ interface CardProductProps {
 }
 
 export const CardProducts = ({ product, isAdmin = false } : CardProductProps) => {
+  const location = useLocation();
   return (
     <div className={styles.productContainer}>
         <img src={product.image} alt={product.title} />
@@ -32,7 +33,10 @@ export const CardProducts = ({ product, isAdmin = false } : CardProductProps) =>
                 <p>{product.address}</p>
                 <p>{product.description} </p>
             </div>
-            <Link to={`/detail/${product.id}`} className={styles.button}>Ver mas</Link>
+            <Link 
+              to={`/detail/${product.id}`} 
+              state={{ from: location.pathname }}
+              className={styles.button}>Ver mas</Link>
 
             {isAdmin && (
               <div className={styles.adminButtons}>

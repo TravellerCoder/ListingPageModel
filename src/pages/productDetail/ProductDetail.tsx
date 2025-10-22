@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation} from 'react-router-dom';
 import styles from './ProductDetail.module.css';
 
 interface Product {
@@ -47,6 +47,9 @@ async function fetchProductById(id: string): Promise<Product> {
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation()
+
+  const from = (location.state as { from: string } | undefined)?.from || '/products';
 
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -185,7 +188,7 @@ const ProductDetail = () => {
               Consultar por WhatsApp
             </a>
             <Link
-              to="/products"
+              to={from}
               className={styles.backToListLink}
             >
               Volver al listado
