@@ -8,6 +8,7 @@ import Home from './pages/home/Home.tsx'
 import AboutUs from './pages/aboutUs/AboutUs.tsx'
 import Contact from './pages/contact/Contact.tsx'
 import LogIn from './pages/logIn/LogIn.tsx'
+import AdminProducts from './pages/adminProducts/AdminProducts.tsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       { 
         path: "/login",
         element: <LogIn />,
+      },
+      {
+        path: "/admin",
+        element: <AdminProducts />,
       }
     ],
   },

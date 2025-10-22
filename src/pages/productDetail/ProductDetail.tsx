@@ -18,34 +18,22 @@ interface Product {
   area?: string;            // "150m2"
 }
 
-const BASE_URL = 'http://localhost:3001';
 
 async function fetchProductById(id: string): Promise<Product> {
-  // Try direct fetch by ID
-  let response = await fetch(`${BASE_URL}/products/${encodeURIComponent(id)}`);
-  if (response.ok) return await response.json();
+  // Busca el producto directamente en los datos importados
+  const product = products.find((p) => p.id === id);
+  if (product) return product;
 
-  // Try fetching by query parameter (handles duplicates)
-  response = await fetch(`${BASE_URL}/products?id=${encodeURIComponent(id)}`);
-  if (response.ok) {
-    const products = await response.json();
-    if (Array.isArray(products) && products.length > 0) return products[0];
-  }
-
-  // Try with ID without leading zeros
+  // Intenta buscar con el ID sin ceros iniciales
   const trimmedId = id.replace(/^0+/, '');
   if (trimmedId !== id) {
-    response = await fetch(`${BASE_URL}/products/${encodeURIComponent(trimmedId)}`);
-    if (response.ok) return await response.json();
-
-    response = await fetch(`${BASE_URL}/products?id=${encodeURIComponent(trimmedId)}`);
-    if (response.ok) {
-      const products = await response.json();
-      if (Array.isArray(products) && products.length > 0) return products[0];
-    }
+    const trimmedProduct = products.find((p) => p.id === trimmedId);
+    if (trimmedProduct) return trimmedProduct;
   }
 
   throw new Error('Producto no encontrado');
+  console.log('Productos disponibles', products);
+  
 }
 
 const ProductDetail = () => {

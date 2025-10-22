@@ -17,6 +17,9 @@ interface Product {
   area?: string;       // ej: "150m2"
 }
 
+interface ProductsData {
+  products: Product[];
+}
 
 const ProductCart = () => {
 
@@ -31,9 +34,9 @@ const ProductCart = () => {
   
     const getProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3001/products');
-        const data: Product[] = await response.json();
-        setProducts(data);
+        const response = await fetch('/data/D-B.json');
+        const data = await response.json();
+        setProducts(data.products);
       } catch (error) {
         console.error('Error fetching products:', error);
       }

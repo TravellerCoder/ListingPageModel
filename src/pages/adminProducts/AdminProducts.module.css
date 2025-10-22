@@ -1,0 +1,14 @@
+.adminProductsContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.adminProductsSearcher {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}    
