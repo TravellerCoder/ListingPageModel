@@ -1,5 +1,8 @@
-import styles from './CardProduct.module.css';
 import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { Modal } from '../modal';
+import styles from './CardProduct.module.css';
+
 interface Product {
   id: string;
   image: string;
@@ -17,10 +20,29 @@ interface Product {
 interface CardProductProps {
   product: Product;
   isAdmin?: boolean;
+  onDelete?: (id: string) => void;
+  onEdit?: (id: string) => void;
 }
 
-export const CardProducts = ({ product, isAdmin = false } : CardProductProps) => {
+export const CardProducts = 
+({ product, isAdmin = false, onDelete, onEdit }: CardProductProps) => {
   const location = useLocation();
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const handleDeleteClick = () => {
+    setShowDeleteModal(true);
+  };
+
+  const handleConfirmDelete = () => {
+    onDelete?.(product.id);
+    setShowDeleteModal(false);
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteModal(false);
+  };
+
   return (
     <div className={styles.productContainer}>
         <img src={product.image} alt={product.title} />
@@ -39,11 +61,30 @@ export const CardProducts = ({ product, isAdmin = false } : CardProductProps) =>
 
             {isAdmin && (
               <div className={styles.adminButtons}>
-                <button className={styles.button}>Modificar</button>
-                <button className={styles.button}>Eliminar</button>
+                <button 
+                  className={styles.button}
+                  onClick={() => onEdit?.(product.id)}
+                  >
+                    Modificar
+                  </button>
+                  <button 
+                    className={styles.button}
+                    onClick={handleDeleteClick}
+                  >
+                    Eliminar
+                  </button>
               </div>
             )}
         </div>
+        <Modal
+        isOpen={showDeleteModal}
+        title="Eliminar Producto"
+        message={`¿Estás seguro que deseas eliminar "${product.title}"? Esta acción no se puede deshacer.`}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+        confirmText="Sí, eliminar"
+        cancelText="Cancelar"
+      />
     </div>
   )
 }

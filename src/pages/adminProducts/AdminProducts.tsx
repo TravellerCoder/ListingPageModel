@@ -6,9 +6,9 @@ import styles from './AdminProducts.module.css';
 
 const AdminProducts = () => {
 
-  const { products, isLoading } = useProducts();
+  const { products, loading, deleteProduct } = useProducts();
   const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
-  const [filteredProducts, setFilteredProducts] = useState(products); 
+  const [filteredProducts, setFilteredProducts] = useState(products); // Estado para los productos filtrados
 
   // Actualiza el título de la página
   useEffect(() => {
@@ -24,10 +24,19 @@ const AdminProducts = () => {
         value.toString().toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
+
+    const handleDelte = (id: string) => {
+      deleteProduct(id);
+    }
+
+    const handleEdit = (id: string) => {
+      console.log('Editar producto con ID:', id);
+    }
+
     setFilteredProducts(results);
   }, [searchTerm, products]);
 
-  if (isLoading) {
+  if (loading) {
     return <p>Cargando productos...</p>;
   }
 
