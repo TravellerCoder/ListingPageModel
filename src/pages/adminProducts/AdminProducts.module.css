@@ -1,6 +1,14 @@
 .adminProductsContainer {
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #615d5d;
+}
+
+.adminProductsContent {
+    max-width: 1200px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .adminProductsSearcher {
@@ -11,4 +19,18 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
-}    
+} 
+
+.productsGrid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    padding: 10px 0;
+    margin: 0 auto;
+}
+
+.adminButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}

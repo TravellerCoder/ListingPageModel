@@ -73,15 +73,16 @@ const AdminProducts = () => {
             className={styles.searchBar}
           />
         </div>
-        <div className={styles.productsGrid}>
-  {filteredProducts.length === 0 ? (
-    <p>No se encontraron productos</p>
-  ) : (
-    filteredProducts.map((product) => (
-      <CardProducts key={product.id} product={product} />
-    ))
-  )}
-</div>
+      </div>
+
+      <div className={styles.productsGrid}>
+        {filteredProducts.length === 0 ? (
+          <p>No se encontraron productos</p>
+        ) : (
+          filteredProducts.map((product) => (
+            <CardProducts key={product.id} product={product} isAdmin={true} />
+          ))
+        )}
       </div>
     </div>
   );
