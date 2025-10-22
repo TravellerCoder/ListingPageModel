@@ -18,21 +18,30 @@ interface Product {
   area?: string;            // "150m2"
 }
 
+interface ProductsData {
+  products: Product[];
+}
+
+
 
 async function fetchProductById(id: string): Promise<Product> {
+
+  const response = await fetch('/data/D-B.json');
+  const data: ProductsData = await response.json();
+
   // Busca el producto directamente en los datos importados
-  const product = products.find((p) => p.id === id);
+  const product = data.products.find((p) => p.id === id);
   if (product) return product;
 
   // Intenta buscar con el ID sin ceros iniciales
   const trimmedId = id.replace(/^0+/, '');
   if (trimmedId !== id) {
-    const trimmedProduct = products.find((p) => p.id === trimmedId);
+    const trimmedProduct = data.products.find((p) => p.id === trimmedId);
     if (trimmedProduct) return trimmedProduct;
   }
 
   throw new Error('Producto no encontrado');
-  console.log('Productos disponibles', products);
+  console.log('Productos disponibles', data.products);
   
 }
 
