@@ -18,6 +18,10 @@ interface Product {
   area: string;
 }
 
+interface ProductsData {
+  products: Product[];
+}
+
 const AdminProducts = () => {
   const [products, setProducts] = useState<Product[]>([]); // Estado para todos los productos
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]); // Estado para los productos filtrados
@@ -25,9 +29,9 @@ const AdminProducts = () => {
 
   const getProducts = async () => {
         try {
-          const response = await fetch('../../data/D-B.json');
-          const data: Product[] = await response.json();
-          setProducts(data);
+          const response = await fetch('/data/D-B.json');
+          const data= await response.json();
+          setProducts(data.products);
         } catch (error) {
           console.error('Error fetching products:', error);
         }
@@ -69,7 +73,15 @@ const AdminProducts = () => {
             className={styles.searchBar}
           />
         </div>
-        <CardProducts product={filteredProducts || []} />
+        <div className={styles.productsGrid}>
+  {filteredProducts.length === 0 ? (
+    <p>No se encontraron productos</p>
+  ) : (
+    filteredProducts.map((product) => (
+      <CardProducts key={product.id} product={product} />
+    ))
+  )}
+</div>
       </div>
     </div>
   );
