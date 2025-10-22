@@ -10,6 +10,7 @@ import AboutUs from './pages/aboutUs/AboutUs.tsx'
 import Contact from './pages/contact/Contact.tsx'
 import LogIn from './pages/logIn/LogIn.tsx'
 import AdminProducts from './pages/adminProducts/AdminProducts.tsx'
+import EditProduct from './pages/editProducts/EditProduct.tsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -44,7 +45,11 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <AdminProducts />,
-      }
+      },
+      {
+        path: "/admin/edit/:id",
+        element: <EditProduct />,
+      },
     ],
   },
 ]);
