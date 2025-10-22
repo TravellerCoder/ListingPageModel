@@ -1,51 +1,22 @@
 import { useEffect, useState } from 'react';
-import styles from './AdminProducts.module.css';
 import { CardProducts } from '../../components/ui/cardPrducts';
+import { useProducts } from '../../context/ProductContext';
+import styles from './AdminProducts.module.css';
 
-// Define la interfaz para los productos
-interface Product {
-  id: string;
-  image: string;
-  title: string;
-  address: string;
-  price: string;
-  operationType: string;
-  propertyType: string;
-  description: string;
-  bedrooms: string;
-  rooms: string;
-  bathrooms: string;
-  area: string;
-}
-
-interface ProductsData {
-  products: Product[];
-}
 
 const AdminProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]); // Estado para todos los productos
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]); // Estado para los productos filtrados
-  const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
 
-  const getProducts = async () => {
-        try {
-          const response = await fetch('/data/D-B.json');
-          const data= await response.json();
-          setProducts(data.products);
-        } catch (error) {
-          console.error('Error fetching products:', error);
-        }
-      }
-    
-        useEffect(() => {
-            getProducts();
-        }, []);
+  const { products, isLoading } = useProducts();
+  const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
+  const [filteredProducts, setFilteredProducts] = useState(products); 
 
   // Actualiza el título de la página
   useEffect(() => {
     document.title = 'Administración de Productos | T.C Broker';
   }, []);
 
+  
+    
   // Filtra los productos cuando cambia el término de búsqueda
   useEffect(() => {
     const results = products.filter((product) =>
@@ -55,6 +26,10 @@ const AdminProducts = () => {
     );
     setFilteredProducts(results);
   }, [searchTerm, products]);
+
+  if (isLoading) {
+    return <p>Cargando productos...</p>;
+  }
 
   return (
     <div className={styles.adminProductsContainer}>
