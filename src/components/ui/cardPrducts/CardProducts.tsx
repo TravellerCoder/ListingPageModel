@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Modal } from '../modal';
 import styles from './CardProduct.module.css';
@@ -43,6 +43,8 @@ export const CardProducts =
     setShowDeleteModal(false);
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className={styles.productContainer}>
         <img src={product.image} alt={product.title} />
@@ -63,7 +65,7 @@ export const CardProducts =
               <div className={styles.adminButtons}>
                 <button 
                   className={styles.button}
-                  onClick={() => onEdit?.(product.id)}
+                  onClick={() => navigate(`/edit-product/${product.id}`)}
                   >
                     Modificar
                   </button>
