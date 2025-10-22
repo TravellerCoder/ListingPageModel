@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useProducts } from '../../context/ProductContext';
 import { Modal } from '../../components/ui/modal';
 import styles from './ProductDetail.module.css';
@@ -85,8 +85,10 @@ const ProductDetail = () => {
       setShowDeleteModal(false);
     };
 
+    const navigate = useNavigate();
+
     const handleEdit = () => {
-      console.log('Editar producto con ID:', product?.id);
+      navigate(`/admin/edit/${product.id}`);
     }
   
   // ✅ Mostrar loading mientras cargan los productos
