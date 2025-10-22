@@ -1,0 +1,250 @@
+.editProductContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.editProductHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.editProductHeader h1 {
+  color: #ffffff;
+  font-size: 32px;
+  margin: 0;
+}
+
+.backButton {
+  padding: 10px 20px;
+  background: #2d2d2d;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.backButton:hover {
+  background: #3d3d3d;
+}
+
+.editProductContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Formulario */
+.formSection {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.formSection h2 {
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  color: #cccccc;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px;
+  background: #2d2d2d;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.formActions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cancelButton,
+.submitButton {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.cancelButton {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+.cancelButton:hover {
+  background: #3d3d3d;
+}
+
+.submitButton {
+  background: #28a745;
+  color: #ffffff;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #218838;
+  transform: scale(1.02);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Vista Previa */
+.previewSection {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.previewSection h2 {
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.previewCard {
+  background: #2d2d2d;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.previewImage {
+  width: 100%;
+  height: 250px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.noImage {
+  color: #666666;
+  font-size: 16px;
+}
+
+.previewContent {
+  padding: 20px;
+}
+
+.previewContent h3 {
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  font-size: 20px;
+}
+
+.previewDetails {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.previewTag {
+  padding: 6px 12px;
+  background: #007bff;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.previewPrice {
+  color: #28a745;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.previewAddress {
+  color: #cccccc;
+  margin: 10px 0;
+}
+
+.previewSpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 15px 0;
+  padding: 15px;
+  background: #1a1a1a;
+  border-radius: 8px;
+}
+
+.previewSpecs span {
+  color: #cccccc;
+  font-size: 14px;
+}
+
+.previewDescription {
+  color: #999999;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .editProductContent {
+    grid-template-columns: 1fr;
+  }
+
+  .previewSection {
+    position: static;
+  }
+}
