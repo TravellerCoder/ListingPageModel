@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { CardProducts } from '../../components/ui/cardPrducts';
 import { useProducts } from '../../context/ProductContext';
+import { Link } from 'react-router';
 import styles from './AdminProducts.module.css';
 
 
@@ -46,7 +47,9 @@ const AdminProducts = () => {
       <div className={styles.adminProductsContent}>
         <p>Aquí podrás gestionar todos los productos de la tienda.</p>
         <div className={styles.adminProductsButtons}>
-          <button className={styles.adminButton}>Agregar Producto</button>
+          <Link to="/admin/create" className={styles.adminButton}>
+            Agregar Producto
+          </Link>
         </div>
         <div className={styles.searchContainer}>
           <input
