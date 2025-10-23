@@ -2,7 +2,7 @@
   "products": [
     {
       "id": "01",
-      "image": "/assets/casa_3CUARTOS.jpg",
+      "image": "/images/casa_3CUARTOS.jpg",
       "title": "Casa 3 habitaciones",
       "address": "San Miguel de Ghiso",
       "price": "USD 180.000",
@@ -16,7 +16,7 @@
     },
     {
       "id": "02",
-      "image": "/assets/Diseno-de-casa-moderna-de-una-planta.jpg",
+      "image": "/images/Diseno-de-casa-moderna-de-una-planta.jpg",
       "title": "Casa con garaje",
       "address": "Barrio Nuevo Amanecer",
       "price": "USD 180.000",
@@ -30,7 +30,7 @@
     },
     {
       "id": "03",
-      "image": "/assets/departamento-para-alquilar.jpg",
+      "image": "/images/departamento-para-alquilar.jpg",
       "title": "Monoambiente",
       "address": "Edificio Luxor II",
       "price": "$500.000",
@@ -44,7 +44,7 @@
     },
     {
       "id": "04",
-      "image": "/assets/terreno-para-vender.jpg",
+      "image": "/images/terreno-para-vender.jpg",
       "title": "Lote apto escriturar",
       "address": "Barrio Santo Domingo",
       "price": "USD 50.000",
@@ -58,7 +58,7 @@
     },
     {
       "id": "05",
-      "image": "/assets/Casa-moderna-un-piso.jpg",
+      "image": "/images/Casa-moderna-un-piso.jpg",
       "title": "Casa 3 habitaciones",
       "address": "Sourdeaux y Moreno",
       "price": "USD 200.000",
