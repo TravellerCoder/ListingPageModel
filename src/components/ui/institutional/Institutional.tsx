@@ -2,9 +2,9 @@ import styles from './Institutional.module.css';
 import { useState } from 'react';
 
 const items = [
-    {src: '/src/assets/casa-inst-1.avif', title: 'Las mejores propiedades del mercado'},
-    {src: '/src/assets/casa-inst-2.webp', title: 'Asesoramiento personalizado'},
-    {src: '/src/assets/casa-inst-3.webp', title: 'Acompañamiento en todo el proceso'},
+    {src: '/images/casa-inst-1.avif', title: 'Las mejores propiedades del mercado'},
+    {src: '/images/casa-inst-2.webp', title: 'Asesoramiento personalizado'},
+    {src: '/images/casa-inst-3.webp', title: 'Acompañamiento en todo el proceso'},
 ];
 
 export const Institutional = () => {
