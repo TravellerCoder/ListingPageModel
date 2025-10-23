@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, } from 'react';
 import { CardProducts } from '../../components/ui/cardPrducts';
 import { useProducts } from '../../context/ProductContext';
 import { Link } from 'react-router';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import styles from './AdminProducts.module.css';
 
 
@@ -10,6 +12,8 @@ const AdminProducts = () => {
   const { products, loading, deleteProduct } = useProducts();
   const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
   const [filteredProducts, setFilteredProducts] = useState(products); // Estado para los productos filtrados
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
   // Actualiza el título de la página
   useEffect(() => {
@@ -17,7 +21,12 @@ const AdminProducts = () => {
   }, []);
 
   
-    
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  }
+
+  
   // Filtra los productos cuando cambia el término de búsqueda
   useEffect(() => {
     const results = products.filter((product) =>
@@ -51,6 +60,9 @@ const AdminProducts = () => {
             Agregar Producto
           </Link>
         </div>
+        <button onClick={handleLogout} className={styles.logoutButton}>
+          Cerrar Sesión
+        </button>
         <div className={styles.searchContainer}>
           <input
             type="text"
