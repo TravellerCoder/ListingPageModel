@@ -21,7 +21,7 @@ export interface Product {
 interface ProductsContextType {
   products: Product[];
   loading: boolean;
-  addProduct: (product: Omit<Product, 'id'>) => void;
+  addProduct: (newProduct: Omit<Product, 'id'>) => void;
   updateProduct: (id: string, product: Partial<Product>) => void;
   deleteProduct: (id: string) => void;
 }
