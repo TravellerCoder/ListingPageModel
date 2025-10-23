@@ -7,7 +7,7 @@ import { Institutional } from "../../components/ui/institutional/Institutional";
 const Home = () => {
 
     /* Fetch productos desde la api */
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<any[]>([]);
 
     const getProducts = async () => {
         try {
