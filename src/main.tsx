@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { LayoutMain } from './components/layouts/LayoutMain.tsx'
 import { ProductsProvider } from './context/ProductContext.tsx'
 import { AuthProvider } from './context/AuthContext.tsx'
+import { ProtectedRoutes } from './components/protectedRoutes/ProtectedRoutes.tsx'  
 import ProductCart from './pages/productCart/ProductCart.tsx'
 import ProductDetail from './pages/productDetail/ProductDetail.tsx'
 import Home from './pages/home/Home.tsx'
@@ -46,15 +47,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin",
-        element: <AdminProducts />,
+        element: (
+          <ProtectedRoutes>
+            <AdminProducts />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/admin/edit/:id",
-        element: <EditProduct />,
+        element: (
+          <ProtectedRoutes>
+            <EditProduct />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/admin/create",
-        element: <CreateProduct />,
+        element: (
+          <ProtectedRoutes>
+            <CreateProduct />
+          </ProtectedRoutes>
+        ),
       }
     ],
   },
