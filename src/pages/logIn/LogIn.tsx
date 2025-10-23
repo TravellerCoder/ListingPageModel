@@ -1,42 +1,43 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth }  from '../../context/AuthContext';
 import styles from './LogIn.module.css';
 
 
 
 const LogIn = () => {
 
-    const [email, setEmail] = useState<string >('');
+    const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
+    const { login } = useAuth();
 
-    // Definicion de credenciales 
-
-    const validOnlyAdminMail = "admin@admin.com"; 
-    const validOnlyAdminPassword = "admin123";
-
+    
     // Manejo del submit del formulario
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
     //  Válidcacion de campos vacios 
 
-    if (!email || !password) {
+    if (!username || !password) {
         setError( 'Por favor, complete todos los campos.' );
         return;
     }
 
     // Validaciones de credenciales 
 
-    if ( email === validOnlyAdminMail && password === validOnlyAdminPassword) {
-        // Credenciales correctas redireccionan al admin page 
+    const success = login(username, password);
+
+    if (success) {
         navigate('/admin');
     } else {
-        // Credenciales incorrectas muestran error 
-        setError( 'Credenciales incorrectas.' );
+        setError('Credenciales incorrectas.');
     }
     };
+
+
+    
 
     useEffect(() => {
                   document.title = "Log In | T.C Broker";
@@ -47,12 +48,12 @@ const LogIn = () => {
       <h1>Bienvenido al administrador del sitio</h1>
       <form className={styles.logInForm}>
         <div className={styles.formGroup}>
-          <label htmlFor="email">Correo Electrónico</label>
+          <label htmlFor="username">Nombre de Usuario</label>
           <input 
-            type="email" 
-            id="email" 
-            value={email}
-            onChange={(e) => setEmail (e.target.value)} 
+            type="text" 
+            id="username" 
+            value={username}
+            onChange={(e) => setUsername (e.target.value)} 
             />
         </div>
         <div className={styles.formGroup}>
