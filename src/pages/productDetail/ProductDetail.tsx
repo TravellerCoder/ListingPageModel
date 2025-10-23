@@ -1,25 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useProducts } from '../../context/ProductContext';
+import type { Product } from '../../context/ProductContext';
 import { Modal } from '../../components/ui/modal';
 import styles from './ProductDetail.module.css';
 
-interface Product {
-  id: string;
-  image?: string;
-  images?: string[];
-  title: string;
-  address?: string;
-  adress?: string;
-  price: string;
-  operationType: string;
-  propertyType?: string;
-  description?: string;
-  bedrooms?: string;
-  rooms?: string;
-  bathrooms?: string;
-  area?: string;
-}
+
 
 
 const ProductDetail = () => {
@@ -88,7 +74,9 @@ const ProductDetail = () => {
     const navigate = useNavigate();
 
     const handleEdit = () => {
+      if (product) {
       navigate(`/admin/edit/${product.id}`);
+      }
     }
   
   // ✅ Mostrar loading mientras cargan los productos

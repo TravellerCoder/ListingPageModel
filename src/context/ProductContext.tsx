@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, } from 'react';
 import type { ReactNode } from 'react';
 
-interface Product {
+export interface Product {
   id: string;
   image: string;
   title: string;
