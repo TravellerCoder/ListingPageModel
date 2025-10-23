@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useProducts } from '../../context/ProductContext';
-import styles from './EditProduct.module.css';
+import styles from './CreateProduct.module.css';
 
 const CreateProduct = () => {
 
