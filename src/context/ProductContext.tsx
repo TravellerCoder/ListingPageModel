@@ -21,7 +21,7 @@ export interface Product {
 interface ProductsContextType {
   products: Product[];
   loading: boolean;
-  addProduct: (newProduct: Omit<Product, 'id'>) => void;
+  addProduct: (newProduct: Partial<Product>) => void;
   updateProduct: (id: string, product: Partial<Product>) => void;
   deleteProduct: (id: string) => void;
 }
@@ -63,9 +63,9 @@ export const ProductsProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [products]);
 
-  const addProduct = (newProduct: Omit<Product, 'id'>) => {
+  const addProduct = (newProduct: Partial<Product>) => {
     const id = String(Math.max(...products.map(p => parseInt(p.id) || 0)) + 1).padStart(2, '0');
-    const productWithId = { ...newProduct, id };
+    const productWithId = { ...newProduct, id } as Product;
     setProducts(prev => [...prev, productWithId]);
   };
 
