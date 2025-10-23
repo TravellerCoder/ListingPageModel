@@ -9,7 +9,7 @@ import styles from './AdminProducts.module.css';
 
 const AdminProducts = () => {
 
-  const { products, loading, deleteProduct } = useProducts();
+  const { products, loading } = useProducts();
   const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
   const [filteredProducts, setFilteredProducts] = useState(products); // Estado para los productos filtrados
   const { logout } = useAuth();
@@ -30,18 +30,11 @@ const AdminProducts = () => {
   // Filtra los productos cuando cambia el término de búsqueda
   useEffect(() => {
     const results = products.filter((product) =>
-      Object.entries(product).some(([key, value]) =>
+      Object.entries(product).some(([_key, value]) =>
         value.toString().toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
 
-    const handleDelte = (id: string) => {
-      deleteProduct(id);
-    }
-
-    const handleEdit = (id: string) => {
-      console.log('Editar producto con ID:', id);
-    }
 
     setFilteredProducts(results);
   }, [searchTerm, products]);
