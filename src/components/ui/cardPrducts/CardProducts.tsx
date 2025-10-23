@@ -21,11 +21,10 @@ interface CardProductProps {
   product: Product;
   isAdmin?: boolean;
   onDelete?: (id: string) => void;
-  onEdit?: (id: string) => void;
 }
 
 export const CardProducts = 
-({ product, isAdmin = false, onDelete, onEdit }: CardProductProps) => {
+({ product, isAdmin = false, onDelete }: CardProductProps) => {
   const location = useLocation();
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
