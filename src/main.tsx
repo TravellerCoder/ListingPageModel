@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { LayoutMain } from './components/layouts/LayoutMain.tsx'
 import { ProductsProvider } from './context/ProductContext.tsx'
+import { AuthProvider } from './context/AuthContext.tsx'
 import ProductCart from './pages/productCart/ProductCart.tsx'
 import ProductDetail from './pages/productDetail/ProductDetail.tsx'
 import Home from './pages/home/Home.tsx'
@@ -61,8 +62,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ProductsProvider>
-      <RouterProvider router={router} />
-    </ProductsProvider> 
+    <AuthProvider>
+      <ProductsProvider>
+        <RouterProvider router={router} />
+      </ProductsProvider>
+    </AuthProvider>
   </StrictMode>,
 )
