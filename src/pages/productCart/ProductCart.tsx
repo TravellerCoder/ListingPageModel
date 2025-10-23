@@ -18,10 +18,6 @@ interface Product {
   area?: string;       // ej: "150m2"
 }
 
-interface ProductsData {
-  products: Product[];
-}
-
 const ProductCart = () => {
 
   const [operationFilter, setOperationFilter] = useState<'' | 'Venta' | 'Alquiler'>('');
