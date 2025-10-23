@@ -11,7 +11,7 @@ const Contact = () => {
 
     const [status, setStatus] = useState("");
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };    
@@ -20,7 +20,7 @@ const Contact = () => {
             document.title = "Contacto | T.C Broker";
         }, []);
 
-        const handleSubmit = (e) => {
+        const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
 
             // Validación simple
