@@ -4,8 +4,10 @@ import type { ReactNode } from 'react';
 export interface Product {
   id: string;
   image: string;
+  images?: string[];
   title: string;
   address: string;
+  adress: string;
   price: string;
   operationType: string;
   propertyType: string;

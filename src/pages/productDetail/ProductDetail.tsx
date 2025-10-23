@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useProducts } from '../../context/ProductContext';
-import type { Product } from '../../context/ProductContext';
 import { Modal } from '../../components/ui/modal';
 import styles from './ProductDetail.module.css';
 
