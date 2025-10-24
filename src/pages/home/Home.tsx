@@ -1,27 +1,13 @@
 import { Hero } from "../../components/ui/hero"
-import { useState, useEffect } from "react"
-import styles from './Home.module.css'
+import { useEffect } from "react"
 import { CardProducts } from "../../components/ui/cardPrducts";
 import { Institutional } from "../../components/ui/institutional/Institutional";
+import { useProducts } from "../../context/ProductContext";
+import styles from './Home.module.css'
 
 const Home = () => {
 
-    /* Fetch productos desde la api */
-    const [products, setProducts] = useState<any[]>([]);
-
-    const getProducts = async () => {
-        try {
-            const response = await fetch('http://localhost:3001/products');
-            const data = await response.json();
-            setProducts(data);
-        } catch (error) {
-            console.error('Error fetching products:', error);
-        }
-    }
-
-    useEffect(() => {
-        getProducts();
-    }, []);
+    const { products } = useProducts();
 
       useEffect(() => {
             document.title = "Inicio | T.C Broker";
